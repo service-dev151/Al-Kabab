@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-butter: #F5E7C5;
+    --color-butter-light: #FFF8E7;
+    --color-green-deep: #123D2B;
+    --color-green-dark: #0A2419;
+    --color-green-surface: #194E38;
+    --color-green-border: rgba(245, 231, 197, 0.15);
+    --color-gold: #C5A059;
+    --color-gold-light: #DFBE7B;
+    --color-charcoal: #141715;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #123D2B;
+    color: #F5E7C5;
+  }
+
+  /* Urdu typography override when dir="rtl" */
+  [dir="rtl"] {
+    font-family: 'Noto Nastaliq Urdu', 'Plus Jakarta Sans', serif;
+    letter-spacing: 0;
+  }
+}
+
+.font-editorial {
+  font-family: 'Cinzel', serif;
+}
+
+.font-urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+}
+
+/* Pakistani jali geometric subtle pattern background */
+.bg-jali-pattern {
+  background-image: radial-gradient(rgba(197, 160, 89, 0.12) 1px, transparent 1px),
+                    radial-gradient(rgba(197, 160, 89, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+.bg-moroccan-stars {
+  background-color: #123D2B;
+  background-image: 
+    linear-gradient(30deg, #103626 12%, transparent 12.5%, transparent 87%, #103626 87.5%, #103626),
+    linear-gradient(150deg, #103626 12%, transparent 12.5%, transparent 87%, #103626 87.5%, #103626),
+    linear-gradient(30deg, #103626 12%, transparent 12.5%, transparent 87%, #103626 87.5%, #103626),
+    linear-gradient(150deg, #103626 12%, transparent 12.5%, transparent 87%, #103626 87.5%, #103626),
+    linear-gradient(60deg, #184c36 25%, transparent 25.5%, transparent 75%, #184c36 75%, #184c36),
+    linear-gradient(60deg, #184c36 25%, transparent 25.5%, transparent 75%, #184c36 75%, #184c36);
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+/* Custom golden scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A2419;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #DFBE7B;
+}
+
+@keyframes steamRise {
+  0% {
+    transform: translateY(0) scaleX(1) scaleY(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-40px) scaleX(1.3) scaleY(1.4);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-90px) scaleX(1.8) scaleY(1.8);
+    opacity: 0;
+  }
+}
+
+.animate-steam {
+  animation: steamRise 5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-steam-delay-1 {
+  animation: steamRise 6s infinite 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-steam-delay-2 {
+  animation: steamRise 5.5s infinite 3s cubic-bezier(0.4, 0, 0.2, 1);
+}
