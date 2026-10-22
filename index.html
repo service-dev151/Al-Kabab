@@ -1,0 +1,3567 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Al Kabab Restaurant | Authentic Pakistani Cuisine</title>
+  <meta name="description" content="Experience the legendary authentic charcoal-grilled Pakistani BBQ, Seekh Kababs, and rich Handis at Al Kabab Restaurant, Rahim Yar Khan." />
+  <meta property="og:title" content="Al Kabab Restaurant | Authentic Pakistani Cuisine" />
+  <meta property="og:description" content="Authentic Pakistani BBQ & Tandoor in Rahim Yar Khan. Call: 0336-7257900" />
+  <meta property="og:type" content="restaurant" />
+  
+  <!-- Typography: Luxury Serif, Urdu Nastaliq & Clean Body Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Noto+Nastaliq+Urdu:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org Restaurant Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Al-Kabab Restaurant",
+    "image": "/public/images/hero_kabab_platter_1791650384918.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Main Road Abbasia Town, opposite Railway Line",
+      "addressLocality": "Rahim Yar Khan",
+      "addressRegion": "Punjab",
+      "postalCode": "64200",
+      "addressCountry": "PK"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.4268479,
+      "longitude": 70.3060359
+    },
+    "url": "https://www.google.com/maps/place/Al-Kabab+Restaurant/@28.4268479,70.3060359,17z",
+    "telephone": "+923367257900",
+    "servesCuisine": ["Pakistani", "Barbecue", "Karahi & Handi"],
+    "priceRange": "Rs. 200 - Rs. 3500",
+    "openingHours": "Mo-Su 12:00-01:00"
+  }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       EDIT: THEME VARIABLES & BASE STYLES
+       ========================================================================== */
+    :root {
+      --color-butter: #F5E7C5;
+      --color-butter-light: #FFF8E8;
+      --color-butter-dark: #E2CE9E;
+      --color-green-deep: #123D2B;
+      --color-green-dark: #0A2419;
+      --color-green-card: #164632;
+      --color-green-card-hover: #1A543C;
+      --color-green-border: rgba(245, 231, 197, 0.15);
+      --color-gold: #C6A15B;
+      --color-gold-hover: #E2BE78;
+      --color-dark-text: #242424;
+      --font-display: 'Cinzel', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-urdu: 'Noto Nastaliq Urdu', 'Amiri', serif;
+      --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--color-green-deep);
+      color: var(--color-butter);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      scroll-padding-top: 72px;
+    }
+
+    body {
+      background-color: var(--color-green-deep);
+      color: var(--color-butter);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-top: 72px;
+    }
+
+    section {
+      scroll-margin-top: 72px;
+    }
+
+    /* RTL typography handling */
+    [dir="rtl"] {
+      font-family: var(--font-urdu), var(--font-body);
+    }
+    [dir="rtl"] .font-editorial {
+      font-family: var(--font-urdu);
+    }
+
+    .font-editorial {
+      font-family: var(--font-display);
+      letter-spacing: 0.02em;
+    }
+
+    /* Geometric Jali Subtle Pattern */
+    .bg-jali {
+      background-image: radial-gradient(rgba(198, 161, 91, 0.12) 1.2px, transparent 1.2px),
+                        radial-gradient(rgba(198, 161, 91, 0.08) 1.2px, transparent 1.2px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+    }
+
+    /* Custom Golden Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--color-green-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-gold);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-gold-hover);
+    }
+
+    /* Container Utility */
+    .container-wide {
+      width: 100%;
+      max-width: 1240px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    /* ==========================================================================
+       SCROLL ANIMATION CLASSES (IntersectionObserver Driven)
+       ========================================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.75s var(--transition-smooth), transform 0.75s var(--transition-smooth);
+      will-change: opacity, transform;
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.94) translateY(24px);
+      transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+      will-change: opacity, transform;
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-36px);
+      transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+      will-change: opacity, transform;
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(36px);
+      transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-revealed,
+    .reveal-scale.is-revealed,
+    .reveal-left.is-revealed,
+    .reveal-right.is-revealed {
+      opacity: 1;
+      transform: translate(0) scale(1);
+    }
+
+    /* Stagger Delays */
+    .delay-100 { transition-delay: 0.1s; }
+    .delay-200 { transition-delay: 0.2s; }
+    .delay-300 { transition-delay: 0.3s; }
+    .delay-400 { transition-delay: 0.4s; }
+    .delay-500 { transition-delay: 0.5s; }
+
+    /* Accessibility: Respect Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-scale, .reveal-left, .reveal-right {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* ==========================================================================
+       TOP NAVIGATION BAR
+       ========================================================================== */
+    header.sticky-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 72px;
+      z-index: 1000;
+      background-color: rgba(18, 61, 43, 0.98);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--color-green-border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+      box-sizing: border-box;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      overflow: visible;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 1.25rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .brand-logo {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--color-butter);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: color 0.2s ease;
+    }
+    .brand-logo:hover {
+      color: var(--color-gold);
+    }
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+      flex-shrink: 1;
+    }
+
+    .nav-link {
+      color: rgba(245, 231, 197, 0.88);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      white-space: nowrap;
+      position: relative;
+      padding: 0.25rem 0;
+      transition: color 0.2s ease;
+    }
+    .nav-link:hover {
+      color: var(--color-gold-hover);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-gold);
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+    [dir="rtl"] .nav-actions {
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    .btn-lang-toggle {
+      background: rgba(245, 231, 197, 0.08);
+      border: 1px solid rgba(245, 231, 197, 0.25);
+      color: var(--color-butter);
+      padding: 0.45rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex-shrink: 0;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .btn-lang-toggle:hover {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+      background: rgba(245, 231, 197, 0.14);
+    }
+    .btn-lang-toggle:focus-visible {
+      outline: 2px solid var(--color-gold);
+      outline-offset: 2px;
+    }
+
+    .btn-primary {
+      background: var(--color-gold);
+      color: var(--color-green-deep);
+      border: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      box-shadow: 0 4px 14px rgba(198, 161, 91, 0.25);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-primary:hover {
+      background: var(--color-gold-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(198, 161, 91, 0.35);
+    }
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--color-gold);
+      outline-offset: 2px;
+    }
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background: rgba(245, 231, 197, 0.08);
+      color: var(--color-butter);
+      border: 1px solid rgba(245, 231, 197, 0.2);
+      padding: 0.55rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-secondary:hover {
+      background: rgba(245, 231, 197, 0.16);
+      border-color: var(--color-gold);
+    }
+    .btn-secondary:focus-visible {
+      outline: 2px solid var(--color-gold);
+      outline-offset: 2px;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: rgba(245, 231, 197, 0.08);
+      border: 1px solid rgba(245, 231, 197, 0.2);
+      border-radius: 8px;
+      color: var(--color-butter);
+      font-size: 1.25rem;
+      line-height: 1;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+    .mobile-menu-btn:hover {
+      background: rgba(245, 231, 197, 0.16);
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+    }
+    .mobile-menu-btn:focus-visible {
+      outline: 2px solid var(--color-gold);
+      outline-offset: 2px;
+    }
+
+    /* Mobile Drawer Dropdown */
+    .mobile-drawer {
+      display: none;
+      position: absolute;
+      top: 72px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: rgba(10, 36, 25, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 2px solid var(--color-gold);
+      border-top: 1px solid var(--color-green-border);
+      padding: 1.25rem 1.5rem 1.5rem;
+      flex-direction: column;
+      gap: 1rem;
+      z-index: 1050;
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.7);
+      box-sizing: border-box;
+      max-height: calc(100vh - 72px);
+      max-height: calc(100svh - 72px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+    .mobile-drawer.active {
+      display: flex;
+    }
+    .mobile-drawer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .mobile-drawer a {
+      color: var(--color-butter);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.7rem 0.65rem;
+      border-radius: 8px;
+      border-bottom: 1px solid rgba(245, 231, 197, 0.08);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mobile-drawer a:hover,
+    .mobile-drawer a:focus-visible {
+      color: var(--color-gold);
+      background: rgba(245, 231, 197, 0.08);
+      padding-left: 0.9rem;
+    }
+    .mobile-drawer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(245, 231, 197, 0.15);
+    }
+    .mobile-drawer-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      border-radius: 10px;
+    }
+
+    /* ==========================================================================
+       HERO SECTION WITH FULL-SCREEN HORIZONTAL BACKGROUND CAROUSEL
+       ========================================================================== */
+    .hero-section {
+      min-height: calc(100vh - 72px);
+      min-height: calc(100svh - 72px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      padding: 3rem 1rem 3rem;
+      overflow: hidden;
+      background-color: var(--color-green-dark);
+      box-sizing: border-box;
+    }
+
+    /* Layer 1: Carousel Full-Width Background Track (Bottom Layer, z-index: 1) */
+    .hero-carousel-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+      direction: ltr; /* Keeps horizontal translation coordinates consistent across languages */
+    }
+
+    .hero-carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform;
+    }
+
+    .hero-bg-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      filter: none; /* Sharp and clear without blur */
+      transform: scale(1);
+      transition: transform 6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-bg-slide.active img {
+      transform: scale(1.05);
+    }
+
+    /* Layer 2: Subtle Luminous Green Contrast Overlay (z-index: 2) */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 36, 25, 0.6) 0%,
+        rgba(10, 36, 25, 0.32) 40%,
+        rgba(10, 36, 25, 0.42) 70%,
+        rgba(10, 36, 25, 0.85) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* Layer 3: Delicate Billowing Steam Wisps (z-index: 3) */
+    .hero-steam-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 12%;
+    }
+    .steam-wisp {
+      width: 60px;
+      height: 90px;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 70%);
+      filter: blur(12px);
+      border-radius: 50%;
+      animation: steamBillow 4s infinite ease-out;
+    }
+    .steam-wisp:nth-child(2) {
+      animation-delay: 1.5s;
+      width: 80px;
+      height: 110px;
+      margin-left: -20px;
+    }
+    .steam-wisp:nth-child(3) {
+      animation-delay: 2.7s;
+      width: 50px;
+      height: 75px;
+      margin-left: 20px;
+    }
+
+    @keyframes steamBillow {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      25% { opacity: 0.35; }
+      50% { transform: translateY(-40px) scale(1.3); opacity: 0.2; }
+      100% { transform: translateY(-90px) scale(1.7); opacity: 0; }
+    }
+
+    /* Layer 4: Overlay Hero Content (Directly Over Carousel, z-index: 10) */
+    .hero-card-container {
+      position: relative;
+      z-index: 10;
+      width: min(100% - 32px, 1200px);
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+
+    .hero-content-wrap {
+      position: relative;
+      z-index: 10;
+      width: min(100%, 920px);
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border: none;
+      border-radius: 0;
+      padding: 1.5rem 1rem;
+      box-shadow: none;
+      box-sizing: border-box;
+    }
+
+    /* Badges with Clean Spacing */
+    .hero-kicker-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.15rem;
+    }
+
+    .hero-kicker-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      background: transparent;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(198, 161, 91, 0.55);
+      box-shadow: none;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
+    }
+    .hero-kicker-badge.location-badge {
+      color: var(--color-butter);
+      border-color: rgba(245, 231, 197, 0.35);
+    }
+    .kicker-icon {
+      font-size: 0.9rem;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9));
+    }
+
+    /* Hero Heading */
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-butter);
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.95), 0 1px 2px #000;
+      max-width: 820px;
+      width: 100%;
+    }
+    .hero-title .accent-italic {
+      color: var(--color-gold-hover);
+      font-style: italic;
+      display: inline-block;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.95);
+    }
+
+    /* Hero Description */
+    .hero-desc {
+      font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+      color: var(--color-butter);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+      max-width: 720px;
+      width: 100%;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 1px 3px #000;
+    }
+
+    /* Proof Adjacency Strip */
+    .hero-proof-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      padding: 0.5rem 1.15rem;
+      margin-bottom: 1.65rem;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border: 1px solid rgba(245, 231, 197, 0.25);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: rgba(245, 231, 197, 0.95);
+      box-shadow: none;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+      max-width: 100%;
+    }
+    .proof-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      white-space: nowrap;
+    }
+    .proof-item strong {
+      color: var(--color-butter);
+      font-weight: 700;
+    }
+    .proof-icon {
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .proof-divider {
+      color: var(--color-gold);
+      opacity: 0.6;
+    }
+
+    /* Hero Action Buttons */
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.75rem;
+      width: 100%;
+    }
+
+    .hero-btn {
+      min-height: 44px;
+      padding: 0.65rem 1.25rem;
+      font-size: 0.9rem;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      box-sizing: border-box;
+    }
+    .hero-btn .btn-icon {
+      font-size: 1rem;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-foodpanda {
+      background: #D70F64;
+      color: #FFFFFF;
+      border: none;
+      box-shadow: 0 4px 14px rgba(215, 15, 100, 0.35);
+    }
+    .btn-foodpanda:hover {
+      background: #B80A53;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(215, 15, 100, 0.45);
+    }
+    .btn-foodpanda:focus-visible {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
+    }
+    .btn-foodpanda:active {
+      transform: translateY(0);
+    }
+
+    /* Active Background Dish Indicator & Quick Add to Bag */
+    .hero-active-dish-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: rgba(18, 61, 43, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(198, 161, 91, 0.4);
+      border-radius: 12px;
+      padding: 0.65rem 1.15rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      transition: all 0.3s ease;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .hero-active-dish-bar:hover {
+      border-color: var(--color-gold);
+    }
+    .active-dish-info {
+      text-align: left;
+      text-align: start;
+    }
+    .active-dish-kicker {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-gold);
+      font-weight: 700;
+      display: block;
+      line-height: 1.1;
+    }
+    .active-dish-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .active-dish-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-butter);
+    }
+    .active-dish-price {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-gold-hover);
+    }
+    .active-dish-add-btn {
+      padding: 0.45rem 0.95rem;
+      font-size: 0.8rem;
+      margin-left: auto;
+    }
+    [dir="rtl"] .active-dish-add-btn {
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    /* Layer 5: Carousel Navigation Controls (z-index: 20) */
+    .hero-carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(10, 36, 25, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(198, 161, 91, 0.5);
+      color: var(--color-butter);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      user-select: none;
+    }
+    .hero-carousel-btn:hover {
+      background: var(--color-gold);
+      color: var(--color-green-deep);
+      border-color: var(--color-gold);
+      transform: translateY(-50%) scale(1.08);
+      box-shadow: 0 10px 28px rgba(198, 161, 91, 0.4);
+    }
+    .hero-carousel-btn:focus-visible {
+      outline: 2px solid var(--color-gold);
+      outline-offset: 3px;
+    }
+    .hero-carousel-btn:active {
+      transform: translateY(-50%) scale(0.96);
+    }
+    .hero-carousel-prev {
+      left: 1.25rem;
+    }
+    .hero-carousel-next {
+      right: 1.25rem;
+    }
+
+    .hero-carousel-dots {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.35rem 0.75rem;
+      background: rgba(10, 36, 25, 0.65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 999px;
+      border: 1px solid rgba(198, 161, 91, 0.25);
+    }
+    .hero-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(245, 231, 197, 0.4);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s ease;
+    }
+    .hero-dot:hover {
+      background: var(--color-butter);
+    }
+    .hero-dot.active {
+      background: var(--color-gold);
+      width: 26px;
+      border-radius: 6px;
+    }
+
+    /* Responsive adjustments for Hero */
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: calc(100vh - 72px);
+        min-height: calc(100svh - 72px);
+        padding: 2.25rem 0.75rem 2.5rem;
+      }
+      .hero-card-container {
+        width: 100%;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
+      .hero-content-wrap {
+        padding: 1.25rem 0.5rem;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .hero-carousel-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.2rem;
+      }
+      .hero-carousel-prev {
+        left: 0.35rem;
+      }
+      .hero-carousel-next {
+        right: 0.35rem;
+      }
+      .hero-carousel-dots {
+        bottom: 0.5rem;
+      }
+      .hero-active-dish-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.65rem 1rem;
+      }
+      .active-dish-info {
+        text-align: center;
+      }
+      .active-dish-row {
+        justify-content: center;
+      }
+      .active-dish-add-btn {
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-card-container {
+        width: 100%;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
+      .hero-content-wrap {
+        padding: 1rem 0.25rem;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .hero-title {
+        font-size: 1.85rem;
+      }
+      .hero-carousel-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 1.05rem;
+      }
+      .hero-carousel-prev {
+        left: 0.2rem;
+      }
+      .hero-carousel-next {
+        right: 0.2rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+      }
+      .hero-btn {
+        width: 100%;
+      }
+    }
+
+    /* Accessibility: Respect Reduced Motion on Carousel */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-carousel-track {
+        transition: none !important;
+      }
+      .hero-bg-slide img {
+        transition: none !important;
+        transform: none !important;
+      }
+      .steam-wisp {
+        animation: none !important;
+        opacity: 0 !important;
+      }
+    }
+
+    /* ==========================================================================
+       MENU SECTION & FILTERABLE GRID
+       ========================================================================== */
+    .menu-section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      background: rgba(245, 231, 197, 0.08);
+      border: 1px solid rgba(245, 231, 197, 0.15);
+      color: var(--color-butter);
+      padding: 0.5rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      background: rgba(245, 231, 197, 0.16);
+      border-color: var(--color-gold);
+    }
+    .filter-btn.active {
+      background: var(--color-gold);
+      color: var(--color-green-deep);
+      border-color: var(--color-gold);
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(198, 161, 91, 0.2);
+    }
+
+    .search-wrap {
+      max-width: 440px;
+      margin: 0 auto 3rem;
+      position: relative;
+    }
+    .search-input {
+      width: 100%;
+      background: var(--color-green-dark);
+      border: 1px solid var(--color-green-border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem 0.75rem 2.6rem;
+      color: var(--color-butter);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .search-input:focus {
+      border-color: var(--color-gold);
+    }
+    .search-icon {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-gold);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+    [dir="rtl"] .search-input {
+      padding: 0.75rem 2.6rem 0.75rem 1rem;
+    }
+    [dir="rtl"] .search-icon {
+      left: auto;
+      right: 0.9rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+      gap: 1.75rem;
+    }
+
+    .menu-card {
+      background: var(--color-green-card);
+      border: 1px solid var(--color-green-border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s var(--transition-smooth);
+    }
+    .menu-card:hover {
+      border-color: rgba(198, 161, 91, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.4);
+    }
+
+    .menu-card-img {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--color-green-dark);
+    }
+    .menu-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .menu-card:hover .menu-card-img img {
+      transform: scale(1.05);
+    }
+
+    .menu-card-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .menu-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .dish-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-butter);
+      line-height: 1.3;
+    }
+    .dish-price {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-gold-hover);
+      white-space: nowrap;
+    }
+
+    .dish-desc {
+      font-size: 0.85rem;
+      color: rgba(245, 231, 197, 0.75);
+      line-height: 1.5;
+    }
+
+    .dish-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(245, 231, 197, 0.08);
+      font-size: 0.8rem;
+    }
+    .dish-portion {
+      color: rgba(245, 231, 197, 0.6);
+    }
+
+    /* ==========================================================================
+       HERITAGE & ABOUT SECTION
+       ========================================================================== */
+    .about-section {
+      padding: 6rem 0;
+      background: var(--color-green-dark);
+      border-top: 1px solid var(--color-green-border);
+      border-bottom: 1px solid var(--color-green-border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-visual-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .about-img-box {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--color-green-border);
+      aspect-ratio: 4 / 5;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+    .about-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .about-img-box:hover img {
+      transform: scale(1.05);
+    }
+    .about-visual-strip > div:nth-child(2) {
+      margin-top: 2rem;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .about-text {
+      font-size: 0.95rem;
+      color: rgba(245, 231, 197, 0.8);
+      line-height: 1.7;
+    }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 1rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--color-green-border);
+    }
+    .pillar-item h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      margin-bottom: 0.25rem;
+    }
+    .pillar-item p {
+      font-size: 0.8rem;
+      color: rgba(245, 231, 197, 0.65);
+    }
+
+    /* ==========================================================================
+       GALLERY LIGHTBOX SECTION
+       ========================================================================== */
+    .gallery-section {
+      padding: 6rem 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--color-green-border);
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 36, 25, 0.85) 0%, transparent 60%);
+      opacity: 0.8;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1rem;
+      transition: opacity 0.25s ease;
+    }
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    .gallery-caption {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-butter);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2200;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .lightbox-modal.active {
+      display: flex;
+    }
+    .lightbox-content {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+      background: var(--color-green-dark);
+      border: 1px solid rgba(198, 161, 91, 0.4);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .lightbox-img-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: #000;
+    }
+    .lightbox-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .lightbox-caption-bar {
+      padding: 1.25rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-butter);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       REVIEWS & SOCIAL PROOF SECTION
+       ========================================================================== */
+    .reviews-section {
+      padding: 6rem 0;
+      background: var(--color-green-dark);
+      border-top: 1px solid var(--color-green-border);
+      border-bottom: 1px solid var(--color-green-border);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: 1.75rem;
+    }
+
+    .review-card {
+      background: var(--color-green-card);
+      border: 1px solid var(--color-green-border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+      transition: all 0.3s ease;
+    }
+    .review-card:hover {
+      border-color: rgba(198, 161, 91, 0.5);
+      transform: translateY(-3px);
+    }
+
+    .review-rating-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .stars {
+      color: var(--color-gold);
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+    }
+    .review-source {
+      font-size: 0.75rem;
+      color: rgba(245, 231, 197, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .review-text {
+      font-size: 0.9rem;
+      color: rgba(245, 231, 197, 0.85);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .reviewer-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(245, 231, 197, 0.08);
+      font-size: 0.8rem;
+    }
+    .reviewer-name {
+      font-weight: 700;
+      color: var(--color-butter);
+    }
+    .review-date {
+      color: rgba(245, 231, 197, 0.5);
+    }
+
+    /* ==========================================================================
+       FOODPANDA ORDERING STRIP
+       ========================================================================== */
+    .foodpanda-strip {
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #240513 0%, #300A1D 50%, #150610 100%);
+      border-bottom: 1px solid rgba(215, 15, 100, 0.3);
+    }
+
+    .foodpanda-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .foodpanda-text h3 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .foodpanda-text p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+      max-width: 580px;
+    }
+
+    .btn-foodpanda {
+      background: #D70F64;
+      color: #fff;
+      border: none;
+      padding: 0.85rem 1.75rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 6px 20px rgba(215, 15, 100, 0.35);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-foodpanda:hover {
+      background: #B50B53;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(215, 15, 100, 0.45);
+    }
+
+    /* ==========================================================================
+       CONTACT, HOURS & GOOGLE MAPS SECTION
+       ========================================================================== */
+    .contact-section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .contact-info-boxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .info-box {
+      background: var(--color-green-card);
+      border: 1px solid var(--color-green-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .info-box-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-gold);
+      font-weight: 700;
+    }
+    .info-box-val {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-butter);
+      text-decoration: none;
+    }
+    .info-box-val:hover {
+      color: var(--color-gold-hover);
+    }
+    .info-box-sub {
+      font-size: 0.75rem;
+      color: rgba(245, 231, 197, 0.6);
+    }
+
+    .map-frame-box {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--color-green-border);
+      height: 280px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .map-frame-box iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: contrast(1.05) brightness(0.92);
+    }
+
+    /* Reservation / Contact Form */
+    .reservation-card {
+      background: var(--color-green-card);
+      border: 1px solid rgba(198, 161, 91, 0.35);
+      border-radius: 18px;
+      padding: 2.25rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+
+    .reservation-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-butter);
+      margin-bottom: 0.5rem;
+    }
+    .reservation-card p {
+      font-size: 0.85rem;
+      color: rgba(245, 231, 197, 0.7);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(245, 231, 197, 0.85);
+    }
+    .form-input {
+      background: var(--color-green-dark);
+      border: 1px solid var(--color-green-border);
+      border-radius: 8px;
+      padding: 0.7rem 0.9rem;
+      color: var(--color-butter);
+      font-size: 0.9rem;
+      outline: none;
+      font-family: inherit;
+      transition: border-color 0.2s ease;
+    }
+    .form-input:focus {
+      border-color: var(--color-gold);
+    }
+
+    .form-row-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    /* ==========================================================================
+       ORDERING BAG DRAWER (CART)
+       ========================================================================== */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 420px;
+      background: var(--color-green-dark);
+      border-left: 1px solid var(--color-green-border);
+      box-shadow: -10px 0 40px rgba(0,0,0,0.7);
+      z-index: 2050;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.4s var(--transition-smooth);
+    }
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+    [dir="rtl"] .cart-drawer {
+      right: auto;
+      left: 0;
+      border-left: none;
+      border-right: 1px solid var(--color-green-border);
+      transform: translateX(-100%);
+    }
+    [dir="rtl"] .cart-drawer.active {
+      transform: translateX(0);
+    }
+
+    .cart-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: none;
+    }
+    .cart-backdrop.active {
+      display: block;
+    }
+
+    .cart-header {
+      padding: 1.25rem 1.5rem;
+      background: var(--color-green-deep);
+      border-bottom: 1px solid var(--color-green-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cart-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-butter);
+    }
+    .cart-close-btn {
+      background: transparent;
+      border: none;
+      color: var(--color-butter);
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    .cart-items-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .cart-item {
+      background: var(--color-green-card);
+      border: 1px solid var(--color-green-border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .cart-item-info h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--color-butter);
+    }
+    .cart-item-price {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-gold-hover);
+    }
+
+    .cart-stepper {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--color-green-dark);
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      border: 1px solid var(--color-green-border);
+    }
+    .stepper-btn {
+      background: transparent;
+      border: none;
+      color: var(--color-butter);
+      font-size: 1rem;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cart-footer {
+      padding: 1.25rem;
+      background: var(--color-green-deep);
+      border-top: 1px solid var(--color-green-border);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-gold-hover);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    footer.site-footer {
+      background: var(--color-green-dark);
+      border-top: 1px solid var(--color-green-border);
+      padding: 4.5rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-col h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-gold);
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .footer-links a {
+      color: rgba(245, 231, 197, 0.75);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover {
+      color: var(--color-gold-hover);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(245, 231, 197, 0.08);
+      font-size: 0.8rem;
+      color: rgba(245, 231, 197, 0.5);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .nav-links { display: none !important; }
+      .mobile-menu-btn { display: flex !important; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        gap: 0.75rem;
+      }
+      .brand-logo {
+        font-size: 1.2rem;
+      }
+      .footer-grid { grid-template-columns: 1fr; }
+      .contact-info-boxes { grid-template-columns: 1fr; }
+      .form-row-3 { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 540px) {
+      .nav-inner {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        gap: 0.5rem;
+      }
+      .brand-logo {
+        font-size: 1.1rem;
+      }
+      .nav-actions {
+        gap: 0.45rem;
+      }
+      .nav-actions .btn-lang-toggle {
+        display: none;
+      }
+      .nav-actions .btn-primary {
+        padding: 0.45rem 0.75rem;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body class="bg-jali">
+
+  <!-- ==========================================================================
+       EDIT: NAVIGATION HEADER
+       ========================================================================== -->
+  <header class="sticky-nav">
+    <div class="container-wide nav-inner">
+      
+      <!-- Brand Logo Wordmark -->
+      <a href="#hero" class="brand-logo" id="brand-logo">
+        <span class="brand-dot"></span>
+        <span id="nav-brand-text">AL KABAB</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-links">
+        <a href="#hero" class="nav-link" data-i18n="nav_home">Home</a>
+        <a href="#carousel" class="nav-link" data-i18n="nav_specialties">Specialties</a>
+        <a href="#menu" class="nav-link" data-i18n="nav_menu">Full Menu</a>
+        <a href="#heritage" class="nav-link" data-i18n="nav_heritage">Heritage</a>
+        <a href="#reviews" class="nav-link" data-i18n="nav_reviews">Reviews</a>
+        <a href="#contact" class="nav-link" data-i18n="nav_contact">Location</a>
+      </nav>
+
+      <!-- Navigation Right Actions -->
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <button class="btn-lang-toggle" id="lang-toggle-btn" aria-label="Toggle English and Urdu">
+          🌐 <span id="lang-toggle-text">اردو</span>
+        </button>
+
+        <!-- Order Bag Trigger -->
+        <button class="btn-primary" id="open-cart-btn" aria-label="Open Order Bag">
+          🛍️ <span data-i18n="nav_order_bag">Order Bag</span>
+          <span id="cart-counter" style="background: #123D2B; color: #F5E7C5; font-size: 0.75rem; padding: 0.1rem 0.45rem; border-radius: 999px;">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-btn" id="mobile-toggle-btn" aria-label="Toggle Mobile Navigation" aria-expanded="false">
+          ☰
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Dropdown -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <div class="mobile-drawer-links">
+        <a href="#hero" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_home">Home</a>
+        <a href="#carousel" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_specialties">Specialties</a>
+        <a href="#menu" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_menu">Full Menu</a>
+        <a href="#heritage" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_heritage">Heritage</a>
+        <a href="#reviews" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_reviews">Reviews</a>
+        <a href="#contact" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_contact">Location & Booking</a>
+        <a href="tel:+923367257900" class="mobile-nav-link" onclick="closeMobileDrawer()" style="color: var(--color-gold); font-weight: 700;">
+          <span>📞 0336-7257900</span>
+        </a>
+      </div>
+
+      <!-- Mobile Drawer Actions: Language Switcher & Order Bag -->
+      <div class="mobile-drawer-actions">
+        <button class="btn-lang-toggle mobile-drawer-btn" id="mobile-lang-toggle-btn" aria-label="Toggle Language">
+          🌐 <span id="mobile-lang-toggle-text">اردو</span>
+        </button>
+        <button class="btn-primary mobile-drawer-btn" id="mobile-open-cart-btn" aria-label="Open Order Bag">
+          🛍️ <span data-i18n="nav_order_bag">Order Bag</span>
+          <span id="mobile-cart-counter" style="background: #123D2B; color: #F5E7C5; font-size: 0.8rem; padding: 0.15rem 0.55rem; border-radius: 999px; margin-left: 0.4rem;">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       EDIT: HERO SECTION (FULL-SCREEN HORIZONTAL BACKGROUND FOOD CAROUSEL)
+       ========================================================================== -->
+  <section class="hero-section" id="hero">
+    <div id="carousel" style="position: absolute; top: 0; left: 0;" aria-hidden="true"></div>
+
+    <!-- 1. Background Carousel Layer (Bottom Layer, z-index: 1) -->
+    <div class="hero-carousel-bg" id="hero-carousel-bg" dir="ltr" aria-hidden="true">
+      <div class="hero-carousel-track" id="hero-carousel-track">
+        <!-- Slides populated dynamically via JS -->
+      </div>
+    </div>
+
+    <!-- 2. Transparent Subtle Scrim Contrast Overlay (z-index: 2) -->
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <!-- 3. Fragrant Steam Wisps (z-index: 3) -->
+    <div class="hero-steam-layer" aria-hidden="true">
+      <div class="steam-wisp"></div>
+      <div class="steam-wisp"></div>
+      <div class="steam-wisp"></div>
+    </div>
+
+    <!-- 4. Overlaid Centered Hero Card (z-index: 10) -->
+    <div class="hero-card-container">
+      <div class="hero-content-wrap reveal" id="hero-content-card">
+        
+        <!-- Badges with clean spacing -->
+        <div class="hero-kicker-wrap">
+          <span class="hero-kicker-badge">
+            <span class="kicker-icon">🔥</span>
+            <span data-i18n="hero_kicker">Live Charcoal BBQ & Tandoor</span>
+          </span>
+          <span class="hero-kicker-badge location-badge">
+            <span class="kicker-icon">📍</span>
+            <span data-i18n="hero_city">Rahim Yar Khan</span>
+          </span>
+        </div>
+
+        <h1 class="hero-title" data-i18n="hero_title">
+          A Taste of <span class="accent-italic">Tradition</span>
+        </h1>
+
+        <p class="hero-desc" data-i18n="hero_desc">
+          Authentic Pakistani Flavours, Crafted with Passion. Hand-marinated prime meats roasted on red embers and served alongside blazing clay tandoor flatbreads.
+        </p>
+
+        <!-- Proof adjacency strip with aligned ratings & patrons -->
+        <div class="hero-proof-strip">
+          <div class="proof-item">
+            <span class="proof-icon">⭐</span>
+            <strong>4.6 / 5.0</strong>
+            <span data-i18n="hero_rating_label">on Foodpanda</span>
+          </div>
+          <span class="proof-divider" aria-hidden="true">•</span>
+          <div class="proof-item">
+            <span class="proof-icon">👥</span>
+            <strong>2,000+</strong>
+            <span data-i18n="hero_diners_label">Verified Patrons</span>
+          </div>
+          <span class="proof-divider" aria-hidden="true">•</span>
+          <div class="proof-item">
+            <span class="proof-icon">✨</span>
+            <strong data-i18n="hero_halal_label">100% Halal Prime Meat</strong>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="hero-actions">
+          <a href="#menu" class="btn-primary hero-btn" data-i18n="hero_btn_menu">
+            <span class="btn-icon">🍽️</span>
+            <span>Explore Our Menu</span>
+          </a>
+          <a href="https://www.foodpanda.pk/restaurant/s7vt/al-kabab-restaurant" target="_blank" rel="noopener noreferrer" class="btn-foodpanda hero-btn" data-i18n="hero_btn_foodpanda">
+            <span class="btn-icon">🐼</span>
+            <span>Order on Foodpanda</span>
+          </a>
+          <a href="tel:+923367257900" class="btn-secondary hero-btn">
+            <span class="btn-icon">📞</span>
+            <span class="phone-display-text">0336-7257900</span>
+          </a>
+        </div>
+
+        <!-- Active Background Dish Indicator & Quick Add to Bag -->
+        <div class="hero-active-dish-bar" id="hero-active-dish-bar">
+          <div class="active-dish-info">
+            <span class="active-dish-kicker" id="active-dish-category">Signature Sizzler</span>
+            <div class="active-dish-row">
+              <span class="active-dish-name" id="active-dish-name">Special Mixed BBQ Platter</span>
+              <span class="active-dish-price" id="active-dish-price">Rs. 2,450</span>
+            </div>
+          </div>
+          <button class="btn-primary active-dish-add-btn" id="hero-add-active-dish-btn">
+            <span>➕</span>
+            <span data-i18n="btn_add_to_order">Add to Order</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 5. Carousel Navigation Controls (z-index: 20) -->
+    <button class="hero-carousel-btn hero-carousel-prev" id="carousel-prev-btn" aria-label="Previous Food Slide" title="Previous Food Slide">‹</button>
+    <button class="hero-carousel-btn hero-carousel-next" id="carousel-next-btn" aria-label="Next Food Slide" title="Next Food Slide">›</button>
+
+    <!-- Pagination Dots -->
+    <div class="hero-carousel-dots" id="carousel-dots" aria-label="Carousel Slides Navigation"></div>
+  </section>
+
+  <!-- ==========================================================================
+       EDIT: FULL RESTAURANT MENU SECTION (SEARCH & CATEGORIES)
+       ========================================================================== -->
+  <section class="menu-section" id="menu">
+    <div class="container-wide">
+      
+      <!-- Section Header -->
+      <div class="section-head reveal">
+        <span class="section-kicker" data-i18n="menu_kicker">Authentic Royal Menu</span>
+        <h2 class="section-title" data-i18n="menu_title">Complete Restaurant Selections</h2>
+        <p class="section-desc" data-i18n="menu_desc">
+          Every cut is freshly marinated, charcoal-kissed over mangrove wood embers, and delivered hot.
+        </p>
+      </div>
+
+      <!-- Category Filter Bar -->
+      <div class="filter-bar reveal">
+        <button class="filter-btn active" data-category="all" data-i18n="filter_all">All Dishes</button>
+        <button class="filter-btn" data-category="bbq" data-i18n="filter_bbq">Charcoal BBQ</button>
+        <button class="filter-btn" data-category="karahi" data-i18n="filter_karahi">Karahi & Handi</button>
+        <button class="filter-btn" data-category="tandoor" data-i18n="filter_tandoor">Clay Tandoor</button>
+        <button class="filter-btn" data-category="rice" data-i18n="filter_rice">Biryani & Rice</button>
+        <button class="filter-btn" data-category="sides" data-i18n="filter_sides">Sides & Chutneys</button>
+        <button class="filter-btn" data-category="desserts" data-i18n="filter_desserts">Desserts</button>
+      </div>
+
+      <!-- Real-Time Search Box -->
+      <div class="search-wrap reveal">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          class="search-input" 
+          id="menu-search-input" 
+          placeholder="Search dishes (e.g. Seekh, Karahi, Roghani Naan)..." 
+          data-i18n-placeholder="search_placeholder" 
+        />
+      </div>
+
+      <!-- Dynamic Menu Grid -->
+      <div class="menu-grid" id="menu-grid">
+        <!-- Populated via JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EDIT: HERITAGE & CULINARY TRADITIONS SECTION
+       ========================================================================== -->
+  <section class="about-section" id="heritage">
+    <div class="container-wide about-grid">
+      
+      <!-- Staggered Photos -->
+      <div class="about-visual-strip reveal-left">
+        <div class="about-img-box">
+          <img 
+            src="/public/images/seekh_kabab_skewers_1791650399734.jpg" 
+            alt="Hand-rolled Seekh Kababs grilling on coals" 
+            onerror="this.src='src/assets/images/seekh_kabab_skewers_1791650399734.jpg'" 
+          />
+        </div>
+        <div class="about-img-box">
+          <img 
+            src="/public/images/tandoori_roghani_naan_1791650436097.jpg" 
+            alt="Fresh Roghani Naan from clay tandoor" 
+            onerror="this.src='src/assets/images/tandoori_roghani_naan_1791650436097.jpg'" 
+          />
+        </div>
+      </div>
+
+      <!-- Narrative Text -->
+      <div class="about-content reveal-right">
+        <span class="section-kicker" data-i18n="heritage_kicker">Our Heritage & Story</span>
+        <h2 class="section-title" data-i18n="heritage_title">Born from Coal, Shaped by Craft</h2>
+        
+        <p class="about-text" data-i18n="heritage_text_1">
+          Situated on Main Road Abbasia Town opposite the Railway Line in Rahim Yar Khan, Al-Kabab Restaurant is synonymous with authentic Pakistani barbecue. We reject shortcuts, commercial powders, and artificial coloring.
+        </p>
+
+        <p class="about-text" data-i18n="heritage_text_2">
+          Every skewer is pressed by master ustads, seasoned with whole toasted cumin, raw papaya juice, and wild podina, then grilled over open mangrove coal. Combined with pillow-soft Roghani Naan brushed with desi butter, this is authentic hospitality.
+        </p>
+
+        <!-- Pillars -->
+        <div class="about-pillars">
+          <div class="pillar-item">
+            <h4 data-i18n="pillar_1_title">🔥 100% Wood Charcoal</h4>
+            <p data-i18n="pillar_1_desc">Natural smoky crust with tender, juicy centers.</p>
+          </div>
+          <div class="pillar-item">
+            <h4 data-i18n="pillar_2_title">🏺 Deep Clay Tandoor</h4>
+            <p data-i18n="pillar_2_desc">Fresh leavened flatbreads baked piping hot to order.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EDIT: FOODPANDA DELIVERY STRIP
+       ========================================================================== -->
+  <section class="foodpanda-strip">
+    <div class="container-wide foodpanda-inner reveal">
+      
+      <div class="foodpanda-text">
+        <span style="color: #FF6397; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">
+          ⭐ 4.6★ Rated · 2,000+ Reviews in Rahim Yar Khan
+        </span>
+        <h3 data-i18n="foodpanda_heading">Craving Hot BBQ at Home?</h3>
+        <p data-i18n="foodpanda_subheading">
+          Order your favorite Seekh Kababs, Malai Boti, and Shinwari Karahi directly on Foodpanda for fast, insulated delivery across Rahim Yar Khan.
+        </p>
+      </div>
+
+      <div>
+        <a 
+          href="https://www.foodpanda.pk/restaurant/s7vt/al-kabab-restaurant" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn-foodpanda"
+        >
+          🐼 <span data-i18n="foodpanda_btn">Order on Foodpanda Now</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EDIT: GALLERY SECTION WITH LIGHTBOX
+       ========================================================================== -->
+  <section class="gallery-section" id="gallery">
+    <div class="container-wide">
+      
+      <div class="section-head reveal">
+        <span class="section-kicker" data-i18n="gallery_kicker">Visual Showcase</span>
+        <h2 class="section-title" data-i18n="gallery_title">Kitchen & Dining Chronicle</h2>
+        <p class="section-desc" data-i18n="gallery_desc">
+          Click any photo to view our culinary artistry in high resolution.
+        </p>
+      </div>
+
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Rendered via JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EDIT: GENUINE CUSTOMER REVIEWS
+       ========================================================================== -->
+  <section class="reviews-section" id="reviews">
+    <div class="container-wide">
+      
+      <div class="section-head reveal">
+        <span class="section-kicker" data-i18n="reviews_kicker">Authentic Guest Feedback</span>
+        <h2 class="section-title" data-i18n="reviews_title">Words From Our Diners</h2>
+        <p class="section-desc" data-i18n="reviews_desc">
+          Verified reviews from genuine patrons on Foodpanda and Google Maps.
+        </p>
+      </div>
+
+      <div class="reviews-grid" id="reviews-grid">
+        <!-- Rendered via JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EDIT: CONTACT, HOURS & RESERVATION SECTION
+       ========================================================================== -->
+  <section class="contact-section" id="contact">
+    <div class="container-wide contact-grid">
+      
+      <!-- Left Column: Location Info, Numbers & Map -->
+      <div class="contact-left reveal-left">
+        
+        <span class="section-kicker" data-i18n="contact_kicker">Visit Us & Order</span>
+        <h2 class="section-title" data-i18n="contact_title">Location & Contact Details</h2>
+
+        <div class="contact-info-boxes">
+          
+          <!-- Primary Call Box -->
+          <div class="info-box">
+            <span class="info-box-label" data-i18n="contact_phone_label">Direct Phone</span>
+            <a href="tel:+923367257900" class="info-box-val phone-display-text">0336-7257900</a>
+            <span class="info-box-sub">Secondary: 0308-7788987</span>
+          </div>
+
+          <!-- WhatsApp Direct Box -->
+          <div class="info-box">
+            <span class="info-box-label" data-i18n="contact_whatsapp_label">WhatsApp Orders</span>
+            <a href="https://wa.me/923367257900" target="_blank" rel="noopener noreferrer" class="info-box-val">
+              +92 336 7257900
+            </a>
+            <span class="info-box-sub">Fast Takeaway & Menus</span>
+          </div>
+
+          <!-- Physical Address Box -->
+          <div class="info-box" style="grid-column: span 2;">
+            <span class="info-box-label" data-i18n="contact_address_label">Address</span>
+            <span class="info-box-val" style="font-size: 0.95rem; line-height: 1.4;" data-i18n="contact_address_val">
+              Main Road Abbasia Town, opposite Railway Line, Rahim Yar Khan, Punjab, Pakistan
+            </span>
+            <span class="info-box-sub">Daily: 12:00 PM – 01:00 AM (Live BBQ after 6:00 PM)</span>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Embed -->
+        <div class="map-frame-box">
+          <iframe 
+            src="https://maps.google.com/maps?q=28.4268479,70.3060359&hl=en&z=15&output=embed" 
+            title="Google Maps Location for Al Kabab Restaurant Rahim Yar Khan" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <div style="margin-top: 1rem;">
+          <a 
+            href="https://www.google.com/maps/place/Al-Kabab+Restaurant/@28.4268479,70.3060359,17z/data=!3m1!4b1" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn-secondary" 
+            style="width: 100%; justify-content: center;"
+          >
+            🗺️ <span data-i18n="btn_maps_directions">Get Directions on Google Maps</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Table Reservation Form -->
+      <div class="contact-right reveal-right">
+        <div class="reservation-card">
+          <h3 data-i18n="res_card_title">Reserve a Table</h3>
+          <p data-i18n="res_card_desc">
+            Book your family or guest dining table in advance. We confirm immediately via WhatsApp or phone.
+          </p>
+
+          <form id="reservation-form" onsubmit="handleReservationSubmit(event)">
+            
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_name">Full Name *</label>
+              <input type="text" id="res-name" class="form-input" placeholder="e.g. Muhammad Asif" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_phone">Contact Number (WhatsApp/Mobile) *</label>
+              <input type="tel" id="res-phone" class="form-input" placeholder="0336-XXXXXXX" required />
+            </div>
+
+            <div class="form-row-3">
+              <div class="form-group">
+                <label class="form-label" data-i18n="form_guests">Guests</label>
+                <select id="res-guests" class="form-input">
+                  <option value="1-2">1-2 Persons</option>
+                  <option value="3-4" selected>3-4 Persons</option>
+                  <option value="5-8">5-8 (Family)</option>
+                  <option value="10+">10+ (Party)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" data-i18n="form_date">Date</label>
+                <input type="date" id="res-date" class="form-input" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" data-i18n="form_time">Time</label>
+                <select id="res-time" class="form-input">
+                  <option value="13:00">1:00 PM</option>
+                  <option value="19:30">7:30 PM</option>
+                  <option value="20:30" selected>8:30 PM</option>
+                  <option value="22:00">10:00 PM</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_notes">Special Requests / Seating Preference</label>
+              <textarea id="res-notes" class="form-input" rows="2" placeholder="e.g. Family partition seating needed..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; padding: 0.85rem;">
+              💬 <span data-i18n="btn_confirm_reservation">Confirm Booking via WhatsApp</span>
+            </button>
+
+            <div id="reservation-success-msg" style="display: none; margin-top: 1rem; color: #4ade80; font-size: 0.85rem; text-align: center;">
+              ✅ Reservation recorded! Opening WhatsApp to finalize confirmation.
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EDIT: FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container-wide">
+      
+      <div class="footer-grid">
+        
+        <!-- Brand Summary -->
+        <div class="footer-col">
+          <a href="#hero" class="brand-logo" style="margin-bottom: 1rem;">
+            <span class="brand-dot"></span>
+            <span>AL KABAB</span>
+          </a>
+          <p style="font-size: 0.85rem; color: rgba(245, 231, 197, 0.7); line-height: 1.6; margin-bottom: 1rem;" data-i18n="footer_about">
+            Rahim Yar Khan’s signature authentic charcoal barbecue house. Fresh leavened tandoor flatbreads and rich handis prepared with timeless tradition.
+          </p>
+          <div style="font-family: var(--font-urdu); color: var(--color-gold); font-size: 1rem;">
+            روایت کا اصلی اور لذیذ ذائقہ
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4 data-i18n="footer_links_head">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#hero" data-i18n="nav_home">Home</a></li>
+            <li><a href="#carousel" data-i18n="nav_specialties">Specialties Carousel</a></li>
+            <li><a href="#menu" data-i18n="nav_menu">Full Restaurant Menu</a></li>
+            <li><a href="#heritage" data-i18n="nav_heritage">Heritage & Story</a></li>
+            <li><a href="#contact" data-i18n="nav_contact">Reservations</a></li>
+          </ul>
+        </div>
+
+        <!-- Order Channels -->
+        <div class="footer-col">
+          <h4 data-i18n="footer_orders_head">Ordering</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.foodpanda.pk/restaurant/s7vt/al-kabab-restaurant" target="_blank" rel="noopener noreferrer">🐼 Foodpanda (4.6★)</a></li>
+            <li><a href="https://wa.me/923367257900" target="_blank" rel="noopener noreferrer">💬 WhatsApp (+92 336 7257900)</a></li>
+            <li><a href="tel:+923367257900">📞 Phone (0336-7257900)</a></li>
+            <li><a href="tel:+923087788987">📞 Alternate (0308-7788987)</a></li>
+          </ul>
+        </div>
+
+        <!-- Hours & Location -->
+        <div class="footer-col">
+          <h4 data-i18n="footer_location_head">Location</h4>
+          <p style="font-size: 0.85rem; color: rgba(245, 231, 197, 0.75); margin-bottom: 0.75rem;" data-i18n="contact_address_val">
+            Main Road Abbasia Town, opposite Railway Line, Rahim Yar Khan
+          </p>
+          <p style="font-size: 0.85rem; color: var(--color-gold);">
+            ⏰ Daily: 12:00 PM – 01:00 AM
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          © <span id="current-year">2026</span> Al Kabab Restaurant (Rahim Yar Khan). All rights reserved.
+        </div>
+        <div>
+          <a href="https://www.google.com/maps/place/Al-Kabab+Restaurant/@28.4268479,70.3060359,17z" target="_blank" rel="noopener noreferrer" style="color: var(--color-butter); text-decoration: none;">
+            📍 Google Maps Profile (28.4268479, 70.3060359)
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       ORDERING BAG DRAWER & BACKDROP
+       ========================================================================== -->
+  <div class="cart-backdrop" id="cart-backdrop" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    
+    <div class="cart-header">
+      <div class="cart-title">🛍️ <span data-i18n="cart_title">Your Order Bag</span></div>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close Bag">✕</button>
+    </div>
+
+    <div class="cart-items-list" id="cart-items-list">
+      <!-- Items populated via JS -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span data-i18n="cart_total_label">Total:</span>
+        <span id="cart-total-amount">Rs. 0</span>
+      </div>
+      <button class="btn-primary" onclick="dispatchWhatsAppOrder()" style="width: 100%; justify-content: center;">
+        💬 <span data-i18n="btn_send_order_whatsapp">Send Order via WhatsApp</span>
+      </button>
+      <a href="https://www.foodpanda.pk/restaurant/s7vt/al-kabab-restaurant" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width: 100%; justify-content: center; font-size: 0.8rem;">
+        🐼 <span data-i18n="btn_or_foodpanda">Or Order on Foodpanda App</span>
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- Lightbox Modal Container -->
+  <div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <div class="lightbox-img-wrap">
+        <img id="lightbox-img" src="" alt="Enlarged food photo" />
+      </div>
+      <div class="lightbox-caption-bar" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================================
+       JAVASCRIPT: CONFIGURATION, ANIMATIONS & DYNAMIC LOGIC
+       ========================================================================== -->
+  <script>
+    /* ==========================================================================
+       1. MASTER RESTAURANT CONFIGURATION (EASY TO LOCATE & EDIT)
+       ========================================================================== */
+    const RESTAURANT_CONFIG = {
+      restaurantNameEn: "Al Kabab Restaurant",
+      restaurantNameUr: "الکباب ریسٹورنٹ",
+      phonePrimary: "0336-7257900",
+      phoneSecondary: "0308-7788987",
+      landline: "068-5952016",
+      whatsappNumber: "923367257900",
+      addressEn: "Main Road Abbasia Town, opposite Railway Line, Rahim Yar Khan, Punjab, Pakistan",
+      addressUr: "مین روڈ عباسیہ ٹاؤن، بالمقابل ریلوے لائن، رحیم یار خان، پنجاب، پاکستان",
+      googleMapsUrl: "https://www.google.com/maps/place/Al-Kabab+Restaurant/@28.4268479,70.3060359,17z/data=!3m1!4b1",
+      foodpandaUrl: "https://www.foodpanda.pk/restaurant/s7vt/al-kabab-restaurant",
+      carouselAutoplay: true,
+      carouselInterval: 4500, // milliseconds
+      animationSpeed: 700,    // milliseconds
+    };
+
+    /* ==========================================================================
+       2. CAROUSEL DISHES DATA (FEATURED ITEMS)
+       ========================================================================== */
+    const CAROUSEL_DISHES = [
+      {
+        id: "c-1",
+        titleEn: "Special Mixed BBQ Platter",
+        titleUr: "الکباب اسپیشل مکس باربی کیو پلیٹر",
+        categoryEn: "Signature Sizzler",
+        categoryUr: "شاہی سزلر",
+        descEn: "A magnificent sizzling platter of tender Beef Seekh Kababs, juicy Chicken Tikka, Malai Boti, and Mutton Chops, served with mint chutney and hot Roghani Naan.",
+        descUr: "بیف سیخ کباب، چکن تکہ، ملائی بوٹی اور مٹن چاپس کا گرما گرم شاہی پلیٹر، پودینہ چٹنی اور تازہ روغنی نان کے ساتھ۔",
+        price: 2450,
+        portionEn: "Serves 3-4 Persons",
+        portionUr: "3 تا 4 افراد کے لیے",
+        image: "/public/images/hero_kabab_platter_1791650384918.jpg",
+        fallbackImage: "src/assets/images/hero_kabab_platter_1791650384918.jpg"
+      },
+      {
+        id: "c-2",
+        titleEn: "Traditional Beef Seekh Kabab",
+        titleUr: "روایتی بیف سیخ کباب",
+        categoryEn: "Charcoal Skewers",
+        categoryUr: "کوئلہ کباب",
+        descEn: "Fresh prime minced beef hand-blended with roasted cumin, whole coriander, and secret spices, char-grilled on live coal skewers to juicy perfection.",
+        descUr: "خالص قیمہ، بھنا زیرہ اور روایتی مصالحوں کے ساتھ تیار دہکتے کوئلوں پر سکھے ہوئے رسیلے سیخ کباب۔",
+        price: 750,
+        portionEn: "4 Skewers with Raita",
+        portionUr: "4 سیخیں رائتے کے ساتھ",
+        image: "/public/images/seekh_kabab_skewers_1791650399734.jpg",
+        fallbackImage: "src/assets/images/seekh_kabab_skewers_1791650399734.jpg"
+      },
+      {
+        id: "c-3",
+        titleEn: "Velvety Chicken Malai Boti",
+        titleUr: "چکن ملائی بوٹی",
+        categoryEn: "Creamy Mild Grill",
+        categoryUr: "ریشمی ملائی کباب",
+        descEn: "Boneless chicken morsels steeped in fresh dairy cream, green cardamoms, and mild aromatic seasoning, slowly smoked over gentle heat.",
+        descUr: "تازہ کریم اور الائچی کے عرق میں میرینیٹ نرم ریشمی بون لیس چکن جو منہ میں گھل جائے۔",
+        price: 920,
+        portionEn: "Full Plate / 8 Pcs",
+        portionUr: "مکمل پلیٹ (8 بوٹیاں)",
+        image: "/public/images/chicken_malai_boti_1791650411207.jpg",
+        fallbackImage: "src/assets/images/chicken_malai_boti_1791650411207.jpg"
+      },
+      {
+        id: "c-4",
+        titleEn: "Mutton Shinwari Karahi",
+        titleUr: "مٹن شنواری کڑاہی",
+        categoryEn: "Iron Wok Specialty",
+        categoryUr: "شنواری کڑاہی",
+        descEn: "Cooked in black iron woks with ripe red tomatoes, slit green chilies, and coarse sea salt. Pure rich flavor of fresh tender mutton without commercial powders.",
+        descUr: "خالص شنواری طریقے سے پکی ہوئی لذیذ مٹن کڑاہی، تازہ ٹماٹر، ہری مرچ اور ادرک کے ساتھ۔",
+        price: 1650,
+        portionEn: "Half KG Fresh Mutton",
+        portionUr: "آدھا کلو تازہ مٹن",
+        image: "/public/images/mutton_karahi_pot_1791650422813.jpg",
+        fallbackImage: "src/assets/images/mutton_karahi_pot_1791650422813.jpg"
+      },
+      {
+        id: "c-5",
+        titleEn: "Clay-Oven Roghani Naan",
+        titleUr: "تندوری روغنی نان",
+        categoryEn: "Clay Tandoor",
+        categoryUr: "تندور کی خاص سوغات",
+        descEn: "Artisan leavened flatbread stamped with golden patterns, baked in clay tandoors, brushed generously with pure butter, and sprinkled with sesame and kalonji.",
+        descUr: "مٹی کے تندور میں پکا ہوا گرم خمیری نان، مکھن اور سفید تلوں کی خوشبو سے سجا ہوا۔",
+        price: 110,
+        portionEn: "Fresh Tandoori Naan",
+        portionUr: "1 تازہ نان",
+        image: "/public/images/tandoori_roghani_naan_1791650436097.jpg",
+        fallbackImage: "src/assets/images/tandoori_roghani_naan_1791650436097.jpg"
+      }
+    ];
+
+    /* ==========================================================================
+       3. COMPLETE RESTAURANT MENU DATA
+       ========================================================================== */
+    const MENU_ITEMS = [
+      {
+        id: "m-1",
+        nameEn: "Special Mixed BBQ Platter",
+        nameUr: "الکباب اسپیشل مکس باربی کیو پلیٹر",
+        category: "bbq",
+        price: 2450,
+        descEn: "Beef Seekh Kababs, Chicken Tikka, Malai Boti, Chops, Raita, and Roghani Naan.",
+        descUr: "بیف سیخ کباب، چکن تکہ، ملائی بوٹی اور مٹن چاپس بمعہ روغنی نان۔",
+        portionEn: "Serves 3-4",
+        portionUr: "3 تا 4 افراد",
+        image: "/public/images/hero_kabab_platter_1791650384918.jpg"
+      },
+      {
+        id: "m-2",
+        nameEn: "Beef Seekh Kabab (4 Skewers)",
+        nameUr: "بیف سیخ کباب (4 سیخیں)",
+        category: "bbq",
+        price: 750,
+        descEn: "Prime beef mince seasoned with toasted spices, cooked on open coals.",
+        descUr: "خالص باریک قیمہ اور بھنے مصالحوں سے تیار کوئلے کے کباب۔",
+        portionEn: "4 Skewers",
+        portionUr: "4 سیخیں",
+        image: "/public/images/seekh_kabab_skewers_1791650399734.jpg"
+      },
+      {
+        id: "m-3",
+        nameEn: "Chicken Malai Boti",
+        nameUr: "چکن ملائی بوٹی",
+        category: "bbq",
+        price: 920,
+        descEn: "Velvety boneless chicken infused with dairy cream and cardamom.",
+        descUr: "تازہ کریم اور الائچی کے عرق میں تیار نرم ملائی بوٹی۔",
+        portionEn: "Full Plate / 8 Pcs",
+        portionUr: "مکمل پلیٹ",
+        image: "/public/images/chicken_malai_boti_1791650411207.jpg"
+      },
+      {
+        id: "m-4",
+        nameEn: "Chicken Tikka (Chest Piece)",
+        nameUr: "چکن تکہ سینہ پیس",
+        category: "bbq",
+        price: 480,
+        descEn: "Quarter chicken breast in spicy Kashmiri marinade grilled on red charcoal.",
+        descUr: "کشمیری مصالحے میں کوئلوں پر بھنا ہوا سینہ پیس۔",
+        portionEn: "1 Piece",
+        portionUr: "1 پیس",
+        image: "/public/images/hero_kabab_platter_1791650384918.jpg"
+      },
+      {
+        id: "m-5",
+        nameEn: "Mutton Shinwari Karahi",
+        nameUr: "مٹن شنواری کڑاہی",
+        category: "karahi",
+        price: 1650,
+        descEn: "Fresh tender mutton simmered with sweet tomatoes, chilies, and rock salt.",
+        descUr: "روایتی شنواری مٹن کڑاہی، تازہ ٹماٹر اور ہری مرچ میں تیار۔",
+        portionEn: "1/2 KG",
+        portionUr: "آدھا کلو",
+        image: "/public/images/mutton_karahi_pot_1791650422813.jpg"
+      },
+      {
+        id: "m-6",
+        nameEn: "Special Chicken White Handi",
+        nameUr: "چکن وائٹ ہانڈی",
+        category: "karahi",
+        price: 1450,
+        descEn: "Clay-pot boneless chicken in almond cream sauce with fenugreek aroma.",
+        descUr: "مٹی کی ہانڈی میں تازہ ملائی، بادام اور قصوری میتھی کا سالن۔",
+        portionEn: "Full Handi",
+        portionUr: "فل ہانڈی",
+        image: "/public/images/mutton_karahi_pot_1791650422813.jpg"
+      },
+      {
+        id: "m-7",
+        nameEn: "Clay-Oven Roghani Naan",
+        nameUr: "تندوری روغنی نان",
+        category: "tandoor",
+        price: 110,
+        descEn: "Fluffy leavened flatbread brushed with butter and sesame seeds.",
+        descUr: "خمیری نان اصلی مکھن اور تلوں کے چھڑکاؤ کے ساتھ۔",
+        portionEn: "1 Naan",
+        portionUr: "1 نان",
+        image: "/public/images/tandoori_roghani_naan_1791650436097.jpg"
+      },
+      {
+        id: "m-8",
+        nameEn: "Garlic Butter Naan",
+        nameUr: "گارلک بٹر نان",
+        category: "tandoor",
+        price: 140,
+        descEn: "Crisp tandoori naan studded with minced garlic and coriander butter.",
+        descUr: "لہسن اور ہرے دھنیے کے ساتھ مکھن لگا ہوا نان۔",
+        portionEn: "1 Naan",
+        portionUr: "1 نان",
+        image: "/public/images/tandoori_roghani_naan_1791650436097.jpg"
+      },
+      {
+        id: "m-9",
+        nameEn: "Dum Pukht Chicken Biryani",
+        nameUr: "دم پخت چکن بریانی",
+        category: "rice",
+        price: 520,
+        descEn: "Fragrant basmati rice layered with spiced chicken and golden onions.",
+        descUr: "خوشبودار باسمتی چاول اور چکن کی لذیذ دم پخت بریانی۔",
+        portionEn: "Double Plate",
+        portionUr: "ڈبل پلیٹ",
+        image: "/public/images/hero_kabab_platter_1791650384918.jpg"
+      },
+      {
+        id: "m-10",
+        nameEn: "Mint Podina Raita & Salad",
+        nameUr: "پودینہ زیرہ رائتہ اور سلاد",
+        category: "sides",
+        price: 120,
+        descEn: "Chilled whipped yogurt with roasted cumin and crisp kachumber.",
+        descUr: "تازہ پودینے کا ٹھنڈا رائتہ اور کچومر سلاد۔",
+        portionEn: "1 Bowl",
+        portionUr: "ایک پیالی",
+        image: "/public/images/seekh_kabab_skewers_1791650399734.jpg"
+      },
+      {
+        id: "m-11",
+        nameEn: "Matka Shahi Kheer",
+        nameUr: "روایتی مٹکا شاہی کھیر",
+        category: "desserts",
+        price: 280,
+        descEn: "Slow-simmered rice pudding with saffron, pistachios, and silver leaf.",
+        descUr: "مٹی کے برتن میں پیش کی جانے والی زعفرانی کھیر۔",
+        portionEn: "Clay Bowl",
+        portionUr: "مٹی کی پیالی",
+        image: "/public/images/hero_kabab_platter_1791650384918.jpg"
+      }
+    ];
+
+    /* ==========================================================================
+       4. GALLERY ITEMS DATA
+       ========================================================================== */
+    const GALLERY_ITEMS = [
+      {
+        titleEn: "Live Coal Grill Station",
+        titleUr: "لائیو کوئلہ باربی کیو",
+        image: "/public/images/seekh_kabab_skewers_1791650399734.jpg"
+      },
+      {
+        titleEn: "Chef's Sizzler Platter",
+        titleUr: "شاہی سزلر پلیٹر",
+        image: "/public/images/hero_kabab_platter_1791650384918.jpg"
+      },
+      {
+        titleEn: "Velvety Chicken Malai Skewers",
+        titleUr: "ریشمی ملائی بوٹی",
+        image: "/public/images/chicken_malai_boti_1791650411207.jpg"
+      },
+      {
+        titleEn: "Clay Tandoor Roghani Naan",
+        titleUr: "روایتی مٹی کا تندور",
+        image: "/public/images/tandoori_roghani_naan_1791650436097.jpg"
+      },
+      {
+        titleEn: "Black Iron Shinwari Karahi",
+        titleUr: "شنواری مٹن کڑاہی",
+        image: "/public/images/mutton_karahi_pot_1791650422813.jpg"
+      }
+    ];
+
+    /* ==========================================================================
+       5. VERIFIED CUSTOMER REVIEWS
+       ========================================================================== */
+    const REVIEWS_DATA = [
+      {
+        nameEn: "Malik Usman Tariq",
+        nameUr: "ملک عثمان طارق",
+        source: "Google Maps",
+        rating: 5,
+        textEn: "Hands down the best Seekh Kabab and Shinwari Karahi in Rahim Yar Khan! Meat is always juicy and smoky.",
+        textUr: "رحیم یار خان میں سب سے لذیذ سیخ کباب اور شنواری کڑاہی! فیملی کے ساتھ کھانا کھانے کی بہترین جگہ۔",
+        date: "2 weeks ago"
+      },
+      {
+        nameEn: "Dr. Ayesha Farooq",
+        nameUr: "ڈاکٹر عائشہ فاروق",
+        source: "Foodpanda",
+        rating: 5,
+        textEn: "Ordered via Foodpanda for our hospital team. Arrived piping hot with fluffy Roghani Naans. 4.6 star quality!",
+        textUr: "فوڈ پانڈا سے آرڈر کیا تھا۔ گرما گرم کھانا پہنچا، روغنی نان اور چٹنی کمال تھی۔ بہترین سروس۔",
+        date: "1 month ago"
+      },
+      {
+        nameEn: "Chaudhry Bilal Warraich",
+        nameUr: "چوہدری بلال وڑائچ",
+        source: "Google Maps",
+        rating: 5,
+        textEn: "Chicken Malai Boti literally melts in your mouth. Authentic taste without artificial colors. Highly recommended.",
+        textUr: "چکن ملائی بوٹی کا کوئی جواب نہیں، منہ میں گھل جاتی ہے۔ بغیر مصنوعی رنگوں کے خالص دیسی ذائقہ۔",
+        date: "2 months ago"
+      }
+    ];
+
+    /* ==========================================================================
+       6. TRANSLATION DICTIONARY (ENGLISH & URDU)
+       ========================================================================== */
+    const TRANSLATIONS = {
+      en: {
+        nav_home: "Home",
+        nav_specialties: "Specialties",
+        nav_menu: "Full Menu",
+        nav_heritage: "Heritage",
+        nav_reviews: "Reviews",
+        nav_contact: "Location",
+        nav_order_bag: "Order Bag",
+        hero_kicker: "Live Charcoal BBQ & Tandoor",
+        hero_city: "Rahim Yar Khan",
+        hero_title: "A Taste of <span class='accent-italic'>Tradition</span>",
+        hero_desc: "Authentic Pakistani Flavours, Crafted with Passion. Hand-marinated prime meats roasted on red embers and served alongside blazing clay tandoor flatbreads.",
+        hero_rating_label: "on Foodpanda",
+        hero_diners_label: "Verified Patrons",
+        hero_halal_label: "100% Halal Prime Meat",
+        hero_btn_menu: "🍽️ Explore Our Menu",
+        hero_btn_foodpanda: "🐼 Order on Foodpanda",
+        hero_badge_kicker: "Chef's Signature Sizzler",
+        hero_badge_title: "Special Mixed BBQ Platter",
+        carousel_kicker: "Featured Grill Highlights",
+        carousel_title: "Our Signature Masterpieces",
+        carousel_desc: "Swipe or browse through our most celebrated charcoal-grilled dishes and slow-simmered handis.",
+        menu_kicker: "Authentic Royal Menu",
+        menu_title: "Complete Restaurant Selections",
+        menu_desc: "Every cut is freshly marinated, charcoal-kissed over mangrove wood embers, and delivered hot.",
+        filter_all: "All Dishes",
+        filter_bbq: "Charcoal BBQ",
+        filter_karahi: "Karahi & Handi",
+        filter_tandoor: "Clay Tandoor",
+        filter_rice: "Biryani & Rice",
+        filter_sides: "Sides & Chutneys",
+        filter_desserts: "Desserts",
+        search_placeholder: "Search dishes (e.g. Seekh, Karahi, Roghani Naan)...",
+        heritage_kicker: "Our Heritage & Story",
+        heritage_title: "Born from Coal, Shaped by Craft",
+        heritage_text_1: "Situated on Main Road Abbasia Town opposite the Railway Line in Rahim Yar Khan, Al-Kabab Restaurant is synonymous with authentic Pakistani barbecue. We reject shortcuts, commercial powders, and artificial coloring.",
+        heritage_text_2: "Every skewer is pressed by master ustads, seasoned with whole toasted cumin, raw papaya juice, and wild podina, then grilled over open mangrove coal. Combined with pillow-soft Roghani Naan brushed with desi butter, this is authentic hospitality.",
+        pillar_1_title: "🔥 100% Wood Charcoal",
+        pillar_1_desc: "Natural smoky crust with tender, juicy centers.",
+        pillar_2_title: "🏺 Deep Clay Tandoor",
+        pillar_2_desc: "Fresh leavened flatbreads baked piping hot to order.",
+        foodpanda_heading: "Craving Hot BBQ at Home?",
+        foodpanda_subheading: "Order your favorite Seekh Kababs, Malai Boti, and Shinwari Karahi directly on Foodpanda for fast, insulated delivery across Rahim Yar Khan.",
+        foodpanda_btn: "Order on Foodpanda Now",
+        gallery_kicker: "Visual Showcase",
+        gallery_title: "Kitchen & Dining Chronicle",
+        gallery_desc: "Click any photo to view our culinary artistry in high resolution.",
+        reviews_kicker: "Authentic Guest Feedback",
+        reviews_title: "Words From Our Diners",
+        reviews_desc: "Verified reviews from genuine patrons on Foodpanda and Google Maps.",
+        contact_kicker: "Visit Us & Order",
+        contact_title: "Location & Contact Details",
+        contact_phone_label: "Direct Phone",
+        contact_whatsapp_label: "WhatsApp Orders",
+        contact_address_label: "Address",
+        contact_address_val: "Main Road Abbasia Town, opposite Railway Line, Rahim Yar Khan, Punjab, Pakistan",
+        btn_maps_directions: "Get Directions on Google Maps",
+        res_card_title: "Reserve a Table",
+        res_card_desc: "Book your family or guest dining table in advance. We confirm immediately via WhatsApp or phone.",
+        form_name: "Full Name *",
+        form_phone: "Contact Number (WhatsApp/Mobile) *",
+        form_guests: "Guests",
+        form_date: "Date",
+        form_time: "Time",
+        form_notes: "Special Requests / Seating Preference",
+        btn_confirm_reservation: "Confirm Booking via WhatsApp",
+        footer_about: "Rahim Yar Khan’s signature authentic charcoal barbecue house. Fresh leavened tandoor flatbreads and rich handis prepared with timeless tradition.",
+        footer_links_head: "Navigation",
+        footer_orders_head: "Ordering",
+        footer_location_head: "Location",
+        cart_title: "Your Order Bag",
+        cart_total_label: "Total:",
+        btn_send_order_whatsapp: "Send Order via WhatsApp",
+        btn_or_foodpanda: "Or Order on Foodpanda App"
+      },
+      ur: {
+        nav_home: "صفحہ اول",
+        nav_specialties: "خاص پکوان",
+        nav_menu: "مکمل مینو",
+        nav_heritage: "روایت",
+        nav_reviews: "رائے",
+        nav_contact: "پتہ و بکنگ",
+        nav_order_bag: "آپ کا آرڈر",
+        hero_kicker: "لائیو کوئلہ باربی کیو اور مٹی کا تندور",
+        hero_city: "رحیم یار خان",
+        hero_title: "روایت کا <span class='accent-italic'>اصلی ذائقہ</span>",
+        hero_desc: "خالص دیسی مصالحوں سے تیار کردہ کباب اور روایتی کھانے۔ دہکتے کوئلوں پر پکے ہوئے رسیلے کباب اور مٹی کے تندور سے گرم نان۔",
+        hero_rating_label: "فوڈ پانڈا ریٹنگ",
+        hero_diners_label: "مطمئن کسٹمرز",
+        hero_halal_label: "خالص حلال تازہ گوشت",
+        hero_btn_menu: "🍽️ ہمارا مینو دیکھیں",
+        hero_btn_foodpanda: "🐼 فوڈ پانڈا پر آرڈر کریں",
+        hero_badge_kicker: "شیف کا شاہی پلیٹر",
+        hero_badge_title: "الکباب اسپیشل مکس باربی کیو",
+        carousel_kicker: "خاص باربی کیو شاہکار",
+        carousel_title: "ہمارے شاہی پکوان",
+        carousel_desc: "سلائیڈ کر کے ہمارے مشہور سیخ کباب، ملائی بوٹی اور شنواری کڑاہی ملاحظہ فرمائیں۔",
+        menu_kicker: "شاہی دسترخوان",
+        menu_title: "الکباب مکمل ریسٹورنٹ مینو",
+        menu_desc: "ہر ڈش کو تازہ گوشت، ہاتھ کے پیسے مصالحوں اور اصلی مکھن سے تیار کیا جاتا ہے۔",
+        filter_all: "تمام پکوان",
+        filter_bbq: "باربی کیو",
+        filter_karahi: "کڑاہی اور ہانڈی",
+        filter_tandoor: "تندور اور نان",
+        filter_rice: "بریانی اور چاول",
+        filter_sides: "رائتہ اور چٹنی",
+        filter_desserts: "روایتی میٹھے",
+        search_placeholder: "کھانا تلاش کریں (مثلاً سیخ کباب، کڑاہی، روغنی نان)...",
+        heritage_kicker: "ہماری روایت اور کہانی",
+        heritage_title: "کوئلوں کی تپش اور نسلوں کا فن",
+        heritage_text_1: "رحیم یار خان میں عباسیہ ٹاؤن مین روڈ پر واقع الکباب ریسٹورنٹ روایتی باربی کیو کا باوقار نام ہے۔ ہم پیکٹ کے مصالحوں اور مصنوعی رنگوں کے بغیر کھانا تیار کرتے ہیں۔",
+        heritage_text_2: "تجربہ کار استادوں کی تیار کردہ سیخیں، کچے پپیتے کا عرق، بھنا زیرہ اور پودینے کی چٹنی۔ تندور کے گرما گرم روغنی نان کے ساتھ لازوال مہمان نوازی۔",
+        pillar_1_title: "🔥 لکڑی کے اصلی کوئلے",
+        pillar_1_desc: "کوئلوں کی سوندھی خوشبو اور رسیلا گوشت۔",
+        pillar_2_title: "🏺 گہرا مٹی کا تندور",
+        pillar_2_desc: "اصلی مکھن میں لتھڑے گرما گرم روغنی نان۔",
+        foodpanda_heading: "گھر پر باربی کیو کا لطف اٹھائیں؟",
+        foodpanda_subheading: "اپنے پسندیدہ سیخ کباب، ملائی بوٹی اور شنواری کڑاہی فوڈ پانڈا پر فوری منگوائیں۔",
+        foodpanda_btn: "فوڈ پانڈا پر آرڈر کریں",
+        gallery_kicker: "تصویری جھلکیاں",
+        gallery_title: "باورچی خانہ اور لائیو گرل",
+        gallery_desc: "کسی بھی تصویر پر کلک کر کے فل سکرین نظارہ دیکھیں۔",
+        reviews_kicker: "کسٹمرز کی آراء",
+        reviews_title: "ہمارے معزز مہمان کیا کہتے ہیں",
+        reviews_desc: "گوگل میپس اور فوڈ پانڈا پر تصدیق شدہ اصلی ریویوز۔",
+        contact_kicker: "رابطہ اور تشریف آوری",
+        contact_title: "پتہ اور فون نمبرز",
+        contact_phone_label: "پرائمری فون",
+        contact_whatsapp_label: "واٹس ایپ رابطہ",
+        contact_address_label: "پتہ",
+        contact_address_val: "مین روڈ عباسیہ ٹاؤن، بالمقابل ریلوے لائن، رحیم یار خان، پنجاب، پاکستان",
+        btn_maps_directions: "گوگل میپس پر لوکیشن دیکھیں",
+        res_card_title: "ٹیبل بک کروائیں",
+        res_card_desc: "فیملی یا دوستوں کے لیے پیشگی بکنگ کریں۔ ہماری ٹیم فوری واٹس ایپ پر تصدیق کرے گی۔",
+        form_name: "مکمل نام *",
+        form_phone: "موبائل نمبر یا واٹس ایپ *",
+        form_guests: "مہمانوں کی تعداد",
+        form_date: "تاریخ",
+        form_time: "وقت",
+        form_notes: "اضافی ہدایات (فیملی کیبن وغیرہ)",
+        btn_confirm_reservation: "واٹس ایپ پر بکنگ بھیجیں",
+        footer_about: "رحیم یار خان میں لائیو کوئلہ باربی کیو، تازہ خمیری روغنی نان اور خوشبودار کڑاہی کا بااعتماد مرکز۔",
+        footer_links_head: "روابط",
+        footer_orders_head: "آن لائن آرڈر",
+        footer_location_head: "پتہ اور اوقات",
+        cart_title: "آپ کا آرڈر بیگ",
+        cart_total_label: "کل رقم:",
+        btn_send_order_whatsapp: "واٹس ایپ پر آرڈر بھیجیں",
+        btn_or_foodpanda: "یا فوڈ پانڈا ایپ سے منگوائیں"
+      }
+    };
+
+    /* ==========================================================================
+       7. APPLICATION STATE
+       ========================================================================== */
+    let currentLanguage = localStorage.getItem('alkabab_lang') || 'en';
+    let currentSlide = 0;
+    let carouselAutoplayTimer = null;
+    let orderCart = JSON.parse(localStorage.getItem('alkabab_cart') || '[]');
+
+    /* ==========================================================================
+       8. INITIALIZATION & DOM BINDINGS
+       ========================================================================== */
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Apply Language
+      applyLanguage(currentLanguage);
+
+      // 2. Render Carousel Slides
+      renderCarousel();
+
+      // 3. Render Menu Grid
+      renderMenu('all', '');
+
+      // 4. Render Gallery & Reviews
+      renderGallery();
+      renderReviews();
+
+      // 5. Initialize IntersectionObserver for Scroll Animations
+      initScrollAnimations();
+
+      // 6. Setup 3D Tilt on Hero Card
+      initHero3DTilt();
+
+      // 7. Update Cart Badge
+      updateCartDisplay();
+
+      // 8. Bind Language Toggle Buttons (Desktop & Mobile Drawer)
+      const langBtn = document.getElementById('lang-toggle-btn');
+      if (langBtn) langBtn.addEventListener('click', toggleLanguage);
+      const mobileLangBtn = document.getElementById('mobile-lang-toggle-btn');
+      if (mobileLangBtn) mobileLangBtn.addEventListener('click', toggleLanguage);
+
+      // 9. Bind Mobile Menu Toggle
+      const mobileToggleBtn = document.getElementById('mobile-toggle-btn');
+      if (mobileToggleBtn) mobileToggleBtn.addEventListener('click', toggleMobileDrawer);
+
+      // 10. Bind Cart Open Buttons (Desktop & Mobile Drawer)
+      const cartBtn = document.getElementById('open-cart-btn');
+      if (cartBtn) cartBtn.addEventListener('click', openCart);
+      const mobileCartBtn = document.getElementById('mobile-open-cart-btn');
+      if (mobileCartBtn) {
+        mobileCartBtn.addEventListener('click', () => {
+          closeMobileDrawer();
+          openCart();
+        });
+      }
+
+      // Close mobile drawer when clicking any nav link inside drawer
+      const mobileDrawer = document.getElementById('mobile-drawer');
+      if (mobileDrawer) {
+        mobileDrawer.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', closeMobileDrawer);
+        });
+      }
+
+      // 11. Bind Category Filter Buttons
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          e.target.classList.add('active');
+          const cat = e.target.getAttribute('data-category');
+          const searchVal = document.getElementById('menu-search-input').value;
+          renderMenu(cat, searchVal);
+        });
+      });
+
+      // 12. Bind Search Filter
+      document.getElementById('menu-search-input').addEventListener('input', (e) => {
+        const activeCatBtn = document.querySelector('.filter-btn.active');
+        const cat = activeCatBtn ? activeCatBtn.getAttribute('data-category') : 'all';
+        renderMenu(cat, e.target.value);
+      });
+
+      // 13. Carousel Arrow Buttons
+      document.getElementById('carousel-prev-btn').addEventListener('click', () => {
+        prevSlide();
+        resetCarouselAutoplay();
+      });
+      document.getElementById('carousel-next-btn').addEventListener('click', () => {
+        nextSlide();
+        resetCarouselAutoplay();
+      });
+
+      // 14. Touch Swipe for Mobile on Carousel
+      initCarouselSwipe();
+
+      // 15. Start Autoplay
+      startCarouselAutoplay();
+
+      // 16. Update Dynamic Phone Numbers
+      document.querySelectorAll('.phone-display-text').forEach(el => {
+        el.textContent = RESTAURANT_CONFIG.phonePrimary;
+      });
+    });
+
+    /* ==========================================================================
+       9. SCROLL ANIMATION (INTERSECTION OBSERVER)
+       ========================================================================== */
+    function initScrollAnimations() {
+      const animatedElements = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right');
+      
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -60px 0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            // Keep revealed elements visible without fading back out
+            obs.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      animatedElements.forEach(el => observer.observe(el));
+    }
+
+    /* ==========================================================================
+       10. FULL-SCREEN BACKGROUND CAROUSEL SYSTEM
+       ========================================================================== */
+    function initHero3DTilt() {
+      // Kept for backward compatibility
+    }
+
+    function renderCarousel() {
+      const bgContainer = document.getElementById('hero-carousel-bg');
+      const dotsContainer = document.getElementById('carousel-dots');
+      if (!bgContainer || !dotsContainer) return;
+
+      bgContainer.innerHTML = '';
+      dotsContainer.innerHTML = '';
+
+      const track = document.createElement('div');
+      track.className = 'hero-carousel-track';
+      track.id = 'hero-carousel-track';
+      bgContainer.appendChild(track);
+
+      CAROUSEL_DISHES.forEach((dish, idx) => {
+        // Fullscreen Background Slide
+        const slide = document.createElement('div');
+        slide.className = `hero-bg-slide ${idx === currentSlide ? 'active' : ''}`;
+        slide.id = `hero-slide-${idx}`;
+        slide.innerHTML = `<img src="${dish.image}" alt="${currentLanguage === 'ur' ? dish.titleUr : dish.titleEn}" onerror="this.src='${dish.fallbackImage}'" loading="${idx === 0 ? 'eager' : 'lazy'}" />`;
+        track.appendChild(slide);
+
+        // Navigation Dot
+        const dot = document.createElement('button');
+        dot.className = `hero-dot ${idx === currentSlide ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+        dot.addEventListener('click', () => {
+          goToSlide(idx);
+          resetCarouselAutoplay();
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      updateCarouselPosition();
+    }
+
+    function updateCarouselPosition() {
+      const track = document.getElementById('hero-carousel-track');
+      if (track) {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+
+      // Toggle active slide
+      document.querySelectorAll('.hero-bg-slide').forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === currentSlide);
+      });
+
+      // Update active dot
+      document.querySelectorAll('.hero-dot').forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlide);
+      });
+
+      updateActiveDishCallout();
+    }
+
+    function updateActiveDishCallout() {
+      const dish = CAROUSEL_DISHES[currentSlide];
+      if (!dish) return;
+
+      const titleEl = document.getElementById('active-dish-name');
+      const priceEl = document.getElementById('active-dish-price');
+      const catEl = document.getElementById('active-dish-category');
+      const addBtn = document.getElementById('hero-add-active-dish-btn');
+
+      if (titleEl) titleEl.textContent = currentLanguage === 'ur' ? dish.titleUr : dish.titleEn;
+      if (priceEl) priceEl.textContent = `Rs. ${dish.price.toLocaleString()}`;
+      if (catEl) catEl.textContent = currentLanguage === 'ur' ? dish.categoryUr : dish.categoryEn;
+
+      if (addBtn) {
+        addBtn.onclick = () => addToCart(dish.id);
+      }
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % CAROUSEL_DISHES.length;
+      updateCarouselPosition();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + CAROUSEL_DISHES.length) % CAROUSEL_DISHES.length;
+      updateCarouselPosition();
+    }
+
+    function goToSlide(idx) {
+      currentSlide = idx;
+      updateCarouselPosition();
+    }
+
+    function startCarouselAutoplay() {
+      if (!RESTAURANT_CONFIG.carouselAutoplay) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      
+      clearInterval(carouselAutoplayTimer);
+      carouselAutoplayTimer = setInterval(() => {
+        nextSlide();
+      }, RESTAURANT_CONFIG.carouselInterval);
+    }
+
+    function resetCarouselAutoplay() {
+      clearInterval(carouselAutoplayTimer);
+      startCarouselAutoplay();
+    }
+
+    // Touch Swipe Support on Hero Section
+    function initCarouselSwipe() {
+      const hero = document.getElementById('hero');
+      if (!hero) return;
+
+      let startX = 0;
+      let diffX = 0;
+
+      hero.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        clearInterval(carouselAutoplayTimer);
+      }, { passive: true });
+
+      hero.addEventListener('touchmove', (e) => {
+        diffX = e.touches[0].clientX - startX;
+      }, { passive: true });
+
+      hero.addEventListener('touchend', () => {
+        if (Math.abs(diffX) > 40) {
+          if (diffX > 0) {
+            currentLanguage === 'ur' ? nextSlide() : prevSlide();
+          } else {
+            currentLanguage === 'ur' ? prevSlide() : nextSlide();
+          }
+        }
+        diffX = 0;
+        startCarouselAutoplay();
+      });
+
+      // Pause autoplay on mouse hover over hero
+      hero.addEventListener('mouseenter', () => clearInterval(carouselAutoplayTimer));
+      hero.addEventListener('mouseleave', () => startCarouselAutoplay());
+    }
+
+    /* ==========================================================================
+       12. FULL MENU RENDERING & FILTERING
+       ========================================================================== */
+    function renderMenu(category = 'all', searchQuery = '') {
+      const grid = document.getElementById('menu-grid');
+      if (!grid) return;
+
+      const q = searchQuery.toLowerCase().trim();
+      
+      const filtered = MENU_ITEMS.filter(item => {
+        const matchesCategory = category === 'all' || item.category === category;
+        const matchesSearch = !q || 
+          item.nameEn.toLowerCase().includes(q) || 
+          item.nameUr.includes(q) || 
+          item.descEn.toLowerCase().includes(q);
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; background: var(--color-green-card); border-radius: 12px;">
+            <p style="color: rgba(245, 231, 197, 0.7); font-size: 0.95rem;">
+              ${currentLanguage === 'ur' ? 'کوئی ڈش تلاش کے مطابق نہیں ملی۔' : 'No dishes found matching your search.'}
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = '';
+      filtered.forEach((dish) => {
+        const card = document.createElement('div');
+        card.className = 'menu-card reveal';
+        
+        const title = currentLanguage === 'ur' ? dish.nameUr : dish.nameEn;
+        const desc = currentLanguage === 'ur' ? dish.descUr : dish.descEn;
+        const portion = currentLanguage === 'ur' ? dish.portionUr : dish.portionEn;
+
+        card.innerHTML = `
+          <div class="menu-card-img">
+            <img src="${dish.image}" alt="${title}" loading="lazy" />
+          </div>
+          <div class="menu-card-body">
+            <div>
+              <div class="menu-card-head">
+                <h3 class="dish-title">${title}</h3>
+                <span class="dish-price">Rs. ${dish.price.toLocaleString()}</span>
+              </div>
+              <p class="dish-desc" style="margin-top: 0.5rem;">${desc}</p>
+            </div>
+            <div class="dish-footer">
+              <span class="dish-portion">${portion}</span>
+              <button class="btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;" onclick="addToCart('${dish.id}')">
+                ➕ <span>${currentLanguage === 'ur' ? 'شامل کریں' : 'Add to Order'}</span>
+              </button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      initScrollAnimations();
+    }
+
+    /* ==========================================================================
+       13. GALLERY & LIGHTBOX
+       ========================================================================== */
+    function renderGallery() {
+      const grid = document.getElementById('gallery-grid');
+      if (!grid) return;
+
+      grid.innerHTML = '';
+      GALLERY_ITEMS.forEach((item) => {
+        const title = currentLanguage === 'ur' ? item.titleUr : item.titleEn;
+        const div = document.createElement('div');
+        div.className = 'gallery-item reveal';
+        div.innerHTML = `
+          <img src="${item.image}" alt="${title}" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="gallery-caption">${title}</span>
+          </div>
+        `;
+        div.addEventListener('click', () => openLightbox(item.image, title));
+        grid.appendChild(div);
+      });
+    }
+
+    function openLightbox(imgSrc, caption) {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-img');
+      const cap = document.getElementById('lightbox-caption');
+      if (!modal || !img || !cap) return;
+
+      img.src = imgSrc;
+      cap.textContent = caption;
+      modal.classList.add('active');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    /* ==========================================================================
+       14. VERIFIED REVIEWS RENDERING
+       ========================================================================== */
+    function renderReviews() {
+      const grid = document.getElementById('reviews-grid');
+      if (!grid) return;
+
+      grid.innerHTML = '';
+      REVIEWS_DATA.forEach(rev => {
+        const name = currentLanguage === 'ur' ? rev.nameUr : rev.nameEn;
+        const text = currentLanguage === 'ur' ? rev.textUr : rev.textEn;
+
+        const card = document.createElement('div');
+        card.className = 'review-card reveal';
+        card.innerHTML = `
+          <div>
+            <div class="review-rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="review-source">${rev.source}</span>
+            </div>
+            <p class="review-text" style="margin-top: 0.85rem;">"${text}"</p>
+          </div>
+          <div class="reviewer-meta">
+            <span class="reviewer-name">${name}</span>
+            <span class="review-date">${rev.date}</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    /* ==========================================================================
+       15. ORDERING BAG (CART) LOGIC
+       ========================================================================== */
+    function addToCart(dishId) {
+      // Find item in carousel or menu items
+      const dish = MENU_ITEMS.find(i => i.id === dishId) || CAROUSEL_DISHES.find(i => i.id === dishId);
+      if (!dish) return;
+
+      const existingIndex = orderCart.findIndex(c => c.dish.id === dishId);
+      if (existingIndex > -1) {
+        orderCart[existingIndex].quantity += 1;
+      } else {
+        orderCart.push({ dish, quantity: 1 });
+      }
+
+      saveCart();
+      updateCartDisplay();
+      openCart();
+    }
+
+    function changeQuantity(dishId, delta) {
+      const index = orderCart.findIndex(c => c.dish.id === dishId);
+      if (index === -1) return;
+
+      orderCart[index].quantity += delta;
+      if (orderCart[index].quantity <= 0) {
+        orderCart.splice(index, 1);
+      }
+
+      saveCart();
+      updateCartDisplay();
+    }
+
+    function saveCart() {
+      localStorage.setItem('alkabab_cart', JSON.stringify(orderCart));
+    }
+
+    function updateCartDisplay() {
+      const counter = document.getElementById('cart-counter');
+      const mobileCounter = document.getElementById('mobile-cart-counter');
+      const list = document.getElementById('cart-items-list');
+      const totalEl = document.getElementById('cart-total-amount');
+
+      const totalCount = orderCart.reduce((sum, item) => sum + item.quantity, 0);
+      const totalAmount = orderCart.reduce((sum, item) => sum + (item.dish.price * item.quantity), 0);
+
+      if (counter) counter.textContent = totalCount;
+      if (mobileCounter) mobileCounter.textContent = totalCount;
+      if (totalEl) totalEl.textContent = `Rs. ${totalAmount.toLocaleString()}`;
+
+      if (!list) return;
+
+      if (orderCart.length === 0) {
+        list.innerHTML = `
+          <div style="text-align: center; padding: 3rem 1rem; color: rgba(245, 231, 197, 0.6);">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🛍️</div>
+            <p>${currentLanguage === 'ur' ? 'آپ کا آرڈر بیگ ابھی خالی ہے۔' : 'Your order bag is currently empty.'}</p>
+          </div>
+        `;
+        return;
+      }
+
+      list.innerHTML = '';
+      orderCart.forEach(item => {
+        const title = currentLanguage === 'ur' ? (item.dish.nameUr || item.dish.titleUr) : (item.dish.nameEn || item.dish.titleEn);
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <div class="cart-item-info">
+            <h4>${title}</h4>
+            <span class="cart-item-price">Rs. ${(item.dish.price * item.quantity).toLocaleString()}</span>
+          </div>
+          <div class="cart-stepper">
+            <button class="stepper-btn" onclick="changeQuantity('${item.dish.id}', -1)">−</button>
+            <span style="font-size: 0.85rem; font-weight: 700; min-width: 16px; text-align: center;">${item.quantity}</span>
+            <button class="stepper-btn" onclick="changeQuantity('${item.dish.id}', 1)">+</button>
+          </div>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    function openCart() {
+      document.getElementById('cart-drawer').classList.add('active');
+      document.getElementById('cart-backdrop').classList.add('active');
+    }
+
+    function closeCart() {
+      document.getElementById('cart-drawer').classList.remove('active');
+      document.getElementById('cart-backdrop').classList.remove('active');
+    }
+
+    function dispatchWhatsAppOrder() {
+      if (orderCart.length === 0) {
+        alert(currentLanguage === 'ur' ? 'براہ کرم پہلے کچھ ڈشز آرڈر میں شامل کریں۔' : 'Please add dishes to your order bag first.');
+        return;
+      }
+
+      let itemsText = '';
+      orderCart.forEach(c => {
+        const name = c.dish.nameEn || c.dish.titleEn;
+        itemsText += `• ${name} x ${c.quantity} = Rs. ${(c.dish.price * c.quantity).toLocaleString()}%0A`;
+      });
+
+      const total = orderCart.reduce((sum, item) => sum + (item.dish.price * item.quantity), 0);
+
+      const msg = `*NEW ORDER - AL KABAB RESTAURANT*%0A` +
+        `------------------------%0A` +
+        `*Items:*%0A${itemsText}` +
+        `------------------------%0A` +
+        `*Total:* Rs. ${total.toLocaleString()}%0A%0A` +
+        `_Please confirm availability and delivery / takeaway time._`;
+
+      window.open(`https://wa.me/${RESTAURANT_CONFIG.whatsappNumber}?text=${msg}`, '_blank');
+    }
+
+    /* ==========================================================================
+       16. TABLE RESERVATION FORM HANDLER
+       ========================================================================== */
+    function handleReservationSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('res-name').value;
+      const phone = document.getElementById('res-phone').value;
+      const guests = document.getElementById('res-guests').value;
+      const date = document.getElementById('res-date').value || 'Today';
+      const time = document.getElementById('res-time').value;
+      const notes = document.getElementById('res-notes').value || 'Standard';
+
+      const msg = `*TABLE RESERVATION - AL KABAB RESTAURANT*%0A` +
+        `*Name:* ${encodeURIComponent(name)}%0A` +
+        `*Phone:* ${encodeURIComponent(phone)}%0A` +
+        `*Guests:* ${encodeURIComponent(guests)}%0A` +
+        `*Date:* ${encodeURIComponent(date)}%0A` +
+        `*Time:* ${encodeURIComponent(time)}%0A` +
+        `*Notes:* ${encodeURIComponent(notes)}`;
+
+      document.getElementById('reservation-success-msg').style.display = 'block';
+
+      setTimeout(() => {
+        window.open(`https://wa.me/${RESTAURANT_CONFIG.whatsappNumber}?text=${msg}`, '_blank');
+      }, 800);
+    }
+
+    /* ==========================================================================
+       17. BILINGUAL LANGUAGE SWITCHER (EN <-> UR WITH RTL)
+       ========================================================================== */
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'en' ? 'ur' : 'en';
+      localStorage.setItem('alkabab_lang', currentLanguage);
+      applyLanguage(currentLanguage);
+
+      // Re-render components with translated strings
+      renderCarousel();
+      renderMenu();
+      renderGallery();
+      renderReviews();
+      updateCartDisplay();
+    }
+
+    function applyLanguage(lang) {
+      const html = document.documentElement;
+      const isUrdu = lang === 'ur';
+
+      html.setAttribute('lang', lang);
+      html.setAttribute('dir', isUrdu ? 'rtl' : 'ltr');
+
+      document.title = isUrdu 
+        ? "الکباب ریسٹورنٹ | خالص روایتی پاکستانی ذائقہ"
+        : "Al Kabab Restaurant | Authentic Pakistani Cuisine";
+
+      const btnText = document.getElementById('lang-toggle-text');
+      if (btnText) btnText.textContent = isUrdu ? 'English' : 'اردو';
+      const mobileBtnText = document.getElementById('mobile-lang-toggle-text');
+      if (mobileBtnText) mobileBtnText.textContent = isUrdu ? 'Switch to English' : 'اردو میں دیکھیں';
+
+      // Update text nodes
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (TRANSLATIONS[lang] && TRANSLATIONS[lang][key]) {
+          el.innerHTML = TRANSLATIONS[lang][key];
+        }
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (TRANSLATIONS[lang] && TRANSLATIONS[lang][key]) {
+          el.setAttribute('placeholder', TRANSLATIONS[lang][key]);
+        }
+      });
+    }
+
+    /* ==========================================================================
+       18. MOBILE DRAWER UTILITIES
+       ========================================================================== */
+    function toggleMobileDrawer(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      const drawer = document.getElementById('mobile-drawer');
+      const toggleBtn = document.getElementById('mobile-toggle-btn');
+      if (drawer) {
+        const isActive = drawer.classList.toggle('active');
+        if (toggleBtn) {
+          toggleBtn.textContent = isActive ? '✕' : '☰';
+          toggleBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        }
+      }
+    }
+
+    function closeMobileDrawer() {
+      const drawer = document.getElementById('mobile-drawer');
+      const toggleBtn = document.getElementById('mobile-toggle-btn');
+      if (drawer && drawer.classList.contains('active')) {
+        drawer.classList.remove('active');
+      }
+      if (toggleBtn) {
+        toggleBtn.textContent = '☰';
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    // Close mobile drawer when clicking outside drawer and toggle button
+    document.addEventListener('click', (e) => {
+      const drawer = document.getElementById('mobile-drawer');
+      const toggleBtn = document.getElementById('mobile-toggle-btn');
+      if (!drawer || !drawer.classList.contains('active')) return;
+      if (!drawer.contains(e.target) && (!toggleBtn || !toggleBtn.contains(e.target))) {
+        closeMobileDrawer();
+      }
+    });
+
+    // Close mobile drawer on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMobileDrawer();
+      }
+    });
+  </script>
+</body>
+</html>

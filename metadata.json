@@ -1,0 +1,6 @@
+{
+  "name": "Al Kabab Restaurant | Authentic Pakistani Cuisine",
+  "description": "Experience the legendary authentic charcoal-grilled Pakistani BBQ, Seekh Kababs, and rich Handis at Al Kabab Restaurant, Rahim Yar Khan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
